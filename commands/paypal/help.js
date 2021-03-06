@@ -5,7 +5,7 @@ module.exports.run = async(client, message, args) => {
     let e1 = new MessageEmbed()
         .setTitle(`Help menu for ${client.user.tag}`)
         .setColor(config.embed.color)
-        .setFooter(`Made by NAT2K15`)
+        .setFooter(`Made by Million1156`)
         .addField(`${config.prefix}addproduct`, `Adds a product to the database`)
         .addField(`${config.prefix}removeproduct`, `Removes a product from the database`)
         .addField(`${config.prefix}showproducts`, `Shows all the products in the database`)
