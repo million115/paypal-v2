@@ -72,13 +72,13 @@ setInterval(() => {
         reslove.forEach(eachpayment => {
             client.paypal.invoice.get(eachpayment.payer_id, async function(err2, invoice) {
                 if (err2) {
-                    console.log(chalk.red `[PAYPAL ERROR] ` + chalk.white `I had an error checking the invoice ID for ${invoice}. If this issue is on going make sure to contact NAT2K15 for support @ https://discord.gg/RquDVTfDwu`)
+                    console.log(chalk.red `[PAYPAL ERROR] ` + chalk.white `I had an error checking the invoice ID for ${invoice}. If this issue is on going make sure to contact Million1156 for support @ Million1156#0001`)
                 } else {
                     if (invoice.status == 'PAID') {
                         connection.query(`UPDATE paypalbot SET orderstatus = 'PAID', hasitbeensent = '1' WHERE payer_id = '${eachpayment.payer_id}'`);
                         connection.query(`SELECT * FROM paypalbot WHERE orderstatus = 'PAID' AND hasitbeensent = '1' AND payer_id = '${eachpayment.payer_id}'`, async function(errr, lastreslove) {
                             let channel = client.channels.cache.get(eachpayment.channel);
-                            if (!channel) return console.log(chalk.red `[ERROR] ` + chalk.white `I was not able to find the channel "${invoice.channel}" it might of already been deleted!. If this issue is still on going make sure to contact NAT2K15 for support @ https://discord.gg/RquDVTfDwu`)
+                            if (!channel) return console.log(chalk.red `[ERROR] ` + chalk.white `I was not able to find the channel "${invoice.channel}" it might of already been deleted!. If this issue is still on going make sure to contact Million1156 for support @ Million1156#0001`)
                              let productid = eachpayment.productid;
                             connection.query(`SELECT * FROM products WHERE id = '${productid}'`, async function(er, forgetabouthtisone) {                   
                                 let e1 = new MessageEmbed()
